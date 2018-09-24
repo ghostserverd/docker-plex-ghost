@@ -19,3 +19,6 @@ EOF
 # permissions
 chown -R abc:abc \
 	/data
+
+# allow all users to access GPU for hardware acceleration
+chmod -R 777 /dev/dri
