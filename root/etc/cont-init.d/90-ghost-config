@@ -16,9 +16,18 @@ cat <<"EOF"
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 EOF
 
-# permissions
+# permissions
 chown -R abc:abc \
 	/data
+
+apt-get update && apt-get install -y unzip
+
+# install the trakt plugin
+wget https://github.com/trakt/Plex-Trakt-Scrobbler/archive/master.zip -O Plex-Trakt-Scrobbler.zip && \
+unzip Plex-Trakt-Scrobbler.zip && \
+mkdir -p "/config/Library/Application Support/Plex Media Server/Plug-ins/" && \
+cp -r Plex-Trakt-Scrobbler-*/Trakttv.bundle "/config/Library/Application Support/Plex Media Server/Plug-ins/Trakttv.bundle" && \
+rm Plex-Trakt-Scrobbler.zip
 
 # allow all users to access GPU for hardware acceleration
 chmod -R 777 /dev/dri
