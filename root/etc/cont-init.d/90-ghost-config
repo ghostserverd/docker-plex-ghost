@@ -18,7 +18,8 @@ EOF
 
 # permissions
 chown -R abc:abc \
-	/data
+        /data \
+        /rdata
 
 apt-get update && apt-get install -y unzip
 

@@ -6,5 +6,7 @@ apt-get update && \
 apt-get install -y \
   i965-va-driver
 
+RUN mkdir -p /rdata
+
 # add ghost config file
 COPY root/ /
