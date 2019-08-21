@@ -16,10 +16,6 @@ cat <<"EOF"
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 EOF
 
-# permissions
-chown -R abc:abc \
-        /data
-
 apt-get update && apt-get install -y unzip
 
 # install the trakt plugin
