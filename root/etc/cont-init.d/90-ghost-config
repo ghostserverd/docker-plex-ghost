@@ -18,10 +18,6 @@ EOF
 
 PLUGIN_LIST="${PLUGIN_LIST:-trakt}"
 
-# permissions
-chown -R abc:abc \
-     /data
-
 if [[ $PLUGIN_LIST != "" ]]; then
      apt-get update && apt-get install -y unzip && \
      mkdir -p "/config/Library/Application Support/Plex Media Server/Plug-ins/"
