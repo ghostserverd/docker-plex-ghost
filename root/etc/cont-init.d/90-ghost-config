@@ -41,20 +41,22 @@ if [[ $PLUGIN_LIST == *"subzero"* ]]; then
     rm Sub-Zero.bundle-2.6.5.3109.zip
 fi
 
-# only chown the data directory if it is not owned by abc:abc
-DATA_OWNER=`stat -c "%U:%G" /data`
-if [[ $DATA_OWNER != "abc:abc" ]]
+# only chown the /data directory if it is not owned by abc:abc
+CHOWN_DIR=/data
+DIR_OWNER=`stat -c "%U:%G" $CHOWN_DIR`
+if [[ $DIR_OWNER != "abc:abc" ]]
 then
-    echo "chowning /data please be patient"
-    chown -R abc:abc /data
+    echo "chowning $CHOWN_DIR please be patient"
+    chown -R abc:abc $CHOWN_DIR
 fi
 
-# only chown the config directory if it is not owned by abc:abc
-CONFIG_OWNER=`stat -c "%U:%G" /config`
-if [[ $CONFIG_OWNER != "abc:abc" ]]
+# only chown the /config directory if it is not owned by abc:abc
+CHOWN_DIR=/config
+DIR_OWNER=`stat -c "%U:%G" $CHOWN_DIR`
+if [[ $DIR_OWNER != "abc:abc" ]]
 then
-    echo "chowning /config please be patient"
-    chown -R abc:abc /config
+    echo "chowning $CHOWN_DIR please be patient"
+    chown -R abc:abc $CHOWN_DIR
 fi
 
 # allow all users to access GPU for hardware acceleration
