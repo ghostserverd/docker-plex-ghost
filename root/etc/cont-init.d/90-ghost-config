@@ -45,6 +45,7 @@ fi
 DATA_OWNER=`stat -c "%U:%G" /data`
 if [[ $DATA_OWNER != "abc:abc" ]]
 then
+    echo "chowning /data please be patient"
     chown -R abc:abc /data
 fi
 
@@ -52,6 +53,7 @@ fi
 CONFIG_OWNER=`stat -c "%U:%G" /config`
 if [[ $CONFIG_OWNER != "abc:abc" ]]
 then
+    echo "chowning /config please be patient"
     chown -R abc:abc /config
 fi
 
